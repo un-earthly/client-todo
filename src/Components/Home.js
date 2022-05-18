@@ -1,8 +1,11 @@
 import React from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
 import Helmet from 'react-helmet'
 import { Link } from 'react-router-dom'
+import auth from '../firebase.init'
 
 export default function Home() {
+    const [user] = useAuthState(auth)
     return (
         <div className='d-flex align-items-center justify-content-center container'>
             <Helmet>
@@ -12,8 +15,13 @@ export default function Home() {
 
                 <h1 style={{ fontSize: '80px', }} className='text-info'>Your Task Mangament Buddy!!</h1>
                 <p className='text-semibold'>Sit Relax! Work! let us manage Your schedule.</p>
-                <Link to='/register' className="btn btn-dark me-3 btn-lg ">Get Started!</Link>
-                <Link to='/login' className="btn btn-outline-dark btn-lg">Login.</Link>
+                {
+                    user ? <>
+                        <Link to='/add-todos' className="btn btn-dark me-3 btn-lg ">Get Started!</Link>
+                        <Link to='/todos' className="btn btn-dark me-3 btn-lg ">Your Tasks!</Link>
+                    </> : <><Link to='/register' className="btn btn-dark me-3 btn-lg ">Get Started!</Link>
+                        <Link to='/login' className="btn btn-outline-dark btn-lg">Login.</Link></>
+                }
 
             </div>
 

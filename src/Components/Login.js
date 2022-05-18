@@ -2,6 +2,7 @@ import React from 'react'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../firebase.init';
 import Social from './Social';
 
@@ -10,6 +11,7 @@ export default function Login() {
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth)
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password)
+        toast.success('Logged In')
     };
 
     const navigate = useNavigate();
