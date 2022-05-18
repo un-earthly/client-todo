@@ -27,7 +27,7 @@ export default function Login() {
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="email" {...register("email", {
-                    required: 'email is required' // JS only: <p>error message</p> TS only support string
+                    required: 'email is required'
                 })} />
                 {errors?.email && console.log(errors)}
             </div>
@@ -36,7 +36,7 @@ export default function Login() {
                 <input type="password" class="form-control" id="password"  {...register("password", {
                     pattern: {
                         value: /[A-Za-z]{3}/,
-                        message: 'password is required' // JS only: <p>error message</p> TS only support string
+                        message: 'password is required'
                     }
                 })} />
 

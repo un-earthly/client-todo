@@ -1,15 +1,24 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import { toast } from 'react-toastify';
 
 export default function Todo({ todo, i, taskCompleted }) {
     const { _id, title, desc } = todo;
 
     const deleteTodo = id => {
-        axios.delete(`http://localhost/todo/${id}`)
+        const confirm = window.confirm('Are You Sure?')
+
+        if (confirm) {
+            axios.delete(`https://young-scrubland-42861.herokuapp.com/todo/${id}`)
+                .then(res => toast.success('Deleted Sucessfully'))
+        }
+        else {
+            toast.error('Coudnt delete.Permission not given')
+        }
     }
     const makestyleDased = id => {
-        axios.put(`http://localhost/todo/${id}`)
-            .then(res => console.log(res.data))
+        axios.put(`https://young-scrubland-42861.herokuapp.com/todo/${id}`)
+            .then(res => toast.success('Congrats on completeing the task'))
     }
     return (
         <tr key={_id}>

@@ -11,7 +11,7 @@ export default function Todos() {
     const [user, loading] = useAuthState(auth)
 
     useEffect(() => {
-        axios.get(`http://localhost/todo?user=${user.email}`)
+        axios.get(`https://young-scrubland-42861.herokuapp.com/todo?user=${user.email}`)
             .then(res => setTodos(res.data))
     }, [user, todos])
 

@@ -19,7 +19,7 @@ export default function AddTodos() {
             desc: data.desc
         }
 
-        axios.post('http://localhost/todo', todoData)
+        axios.post('https://young-scrubland-42861.herokuapp.com/todo', todoData)
             .then(res => {
                 res.data.acknowledged ? toast.success('Successfully added a todo') : toast.error('failed to insert')
                 navigate('/todos')
