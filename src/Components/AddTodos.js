@@ -32,12 +32,12 @@ export default function AddTodos() {
         <div className='w-50 mx-auto'>
             <h1 className="text-center text-info my-4">Have something to do.Insert it up</h1>
             <form onSubmit={handleSubmit(onSubmit)} className='my-5 '>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="title" placeholder="Todo title" {...register("title")} required />
+                <div className="form-floating mb-3">
+                    <input type="text" className="form-control" id="title" placeholder="Todo title" {...register("title")} required />
                     <label for="title">What To Do?</label>
                 </div>
-                <div class="form-floating">
-                    <textarea type="text" class="form-control" id="msg" placeholder="Todo Description" {...register("desc")} required />
+                <div className="form-floating">
+                    <textarea type="text" className="form-control" id="msg" placeholder="Todo Description" {...register("desc")} required />
                     <label for="msg">Description</label>
                 </div>
                 <button className="btn btn-outline-dark w-100 mt-4">Submit</button>

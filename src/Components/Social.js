@@ -14,7 +14,7 @@ export default function Social() {
             </div>
 
 
-            <button class="btn btn-outline-dark w-100" onClick={() => signInWithGoogle()}>
+            <button className="btn btn-outline-dark w-100" onClick={() => signInWithGoogle()}>
                 signInWithGoogle
             </button>
         </div>

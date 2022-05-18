@@ -11,9 +11,9 @@ export default function Navbar() {
     <Loading />
   }
   const menuIcons = <>
-    <li class="nav-item"><NavLink className='nav-link' to='/'>Home</NavLink></li>
-    <li class="nav-item"><NavLink className='nav-link' to='/todos'>Todos</NavLink></li>
-    <li class="nav-item"><NavLink className='nav-link' to='/add-todos'>Add Todos</NavLink></li>
+    <li className="nav-item"><NavLink className='nav-link' to='/'>Home</NavLink></li>
+    <li className="nav-item"><NavLink className='nav-link' to='/todos'>Todos</NavLink></li>
+    <li className="nav-item"><NavLink className='nav-link' to='/add-todos'>Add Todos</NavLink></li>
     {
       user ?
         <>
@@ -21,22 +21,22 @@ export default function Navbar() {
         </>
         :
         <>
-          <li class="nav-item"><NavLink className='nav-link' to='/login'>Login</NavLink></li>
-          <li class="nav-item"> <NavLink className='nav-link' to='/register'>Register</NavLink></li>
+          <li className="nav-item"><NavLink className='nav-link' to='/login'>Login</NavLink></li>
+          <li className="nav-item"> <NavLink className='nav-link' to='/register'>Register</NavLink></li>
         </>
     }
   </>
   return (
     <div>
 
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <Link class="navbar-brand" style={{ fontWeight: 700 }} to="/">TODO</Link>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+      <nav className="navbar navbar-expand-lg">
+        <div className="container-fluid">
+          <Link className="navbar-brand" style={{ fontWeight: 700 }} to="/">TODO</Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               {menuIcons}
             </ul>
           </div>

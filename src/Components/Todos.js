@@ -25,7 +25,7 @@ export default function Todos() {
             <h1 className='text-center text-info'>Your TODOS</h1>
 
 
-            <table class="table">
+            <table className="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>

@@ -26,16 +26,16 @@ export default function Login() {
         <form onSubmit={handleSubmit(onSubmit)} className='w-50 mx-auto my-5 shadow-sm p-5 rounded'>
             <h1 className="text-info text-center">Login</h1>
 
-            <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" {...register("email", {
+            <div className="mb-3">
+                <label for="email" className="form-label">Email address</label>
+                <input type="email" className="form-control" id="email" {...register("email", {
                     required: 'email is required'
                 })} />
                 {errors?.email && console.log(errors)}
             </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password"  {...register("password", {
+            <div className="mb-3">
+                <label for="password" className="form-label">Password</label>
+                <input type="password" className="form-control" id="password"  {...register("password", {
                     pattern: {
                         value: /[A-Za-z]{3}/,
                         message: 'password is required'
@@ -46,7 +46,7 @@ export default function Login() {
 
             </div>
             {error && <p className='text-danger'>{error.message}</p>}
-            <button type="submit" class="btn btn-dark w-100">Submit</button>
+            <button type="submit" className="btn btn-dark w-100">Submit</button>
 
             <Social />
 
