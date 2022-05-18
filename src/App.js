@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Route, Routes } from 'react-router-dom';
+import Home from './Components/Home';
+import Todos from './Components/Todos';
+import Login from './Components/Login';
+import Register from './Components/Register.js';
+import RequireAuth from './Components/RequireAuth';
+import Error from './Components/Error';
+import Navbar from './Components/Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
+import AddTodos from './Components/AddTodos';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/todos" element={<RequireAuth><Todos /></RequireAuth>} />
+        <Route path="/add-todos" element={<RequireAuth><AddTodos /></RequireAuth>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+      <ToastContainer />
     </div>
   );
 }
