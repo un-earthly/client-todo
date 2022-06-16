@@ -5,12 +5,14 @@ import { useForm } from 'react-hook-form'
 import { Link, NavLink } from 'react-router-dom'
 import auth from '../firebase.init'
 import Loading from './Loading'
-
-export default function Navbar() {
+import axios from 'axios'
+export default function Navbar({ setSearchTodo }) {
   const [user, loading] = useAuthState(auth)
   const { handleSubmit, register } = useForm();
   const onSubmit = data => {
-    console.log(data)
+    axios.post('http://localhost/todo/search', data)
+      .then(res => (!res.data) ? setSearchTodo({ error: "error" }) : setSearchTodo(res.data))
+    // .catch(error => console.log(error))
   }
   if (loading) {
     <Loading />

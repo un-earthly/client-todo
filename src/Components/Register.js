@@ -42,9 +42,10 @@ export default function Login() {
             <div className="mb-3">
                 <label for="password" className="form-label">Password</label>
                 <input type="password" className="form-control" id="password"  {...register("password", {
+
                     pattern: {
-                        value: /[A-Za-z]{3}/,
-                        message: 'password is required'
+                        value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/,
+                        message: 'A valid password is at least 6 chars long, has at least one uppercase and one lowercase character.'
                     }
                 })} />
 
