@@ -8,7 +8,7 @@ import Todo from './Todo'
 
 export default function Todos() {
     const [todos, setTodos] = useState([])
-    const [user, loading] = useAuthState(auth)
+    const [user] = useAuthState(auth)
 
     useEffect(() => {
         axios.get(`https://young-scrubland-42861.herokuapp.com/todo?user=${user.email}`)
@@ -37,7 +37,7 @@ export default function Todos() {
                 </thead>
                 <tbody>
                     {
-                        todos.map((todo, i) => <Todo todo={todo} taskCompleted={todo?.completed} i={i} />)
+                        todos.map((todo, i) => <Todo todo={todo} taskCompleted={todo?.completed} i={i} key={todo._id} />)
                     }
                 </tbody>
             </table>

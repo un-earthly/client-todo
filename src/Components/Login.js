@@ -8,7 +8,7 @@ import Social from './Social';
 
 export default function Login() {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth)
+    const [signInWithEmailAndPassword, user, , error] = useSignInWithEmailAndPassword(auth)
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password)
     };
@@ -29,16 +29,21 @@ export default function Login() {
             <div className="mb-3">
                 <label for="email" className="form-label">Email address</label>
                 <input type="email" className="form-control" id="email" {...register("email", {
-                    required: 'email is required'
+                    required: 'email is required',
+                    pattern: {
+                        value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                        message: 'A valid Email is must.'
+                    }
                 })} />
                 {errors?.email && console.log(errors)}
             </div>
             <div className="mb-3">
                 <label for="password" className="form-label">Password</label>
                 <input type="password" className="form-control" id="password"  {...register("password", {
+                    required: "Please Enter Your password",
                     pattern: {
-                        value: /[A-Za-z]{3}/,
-                        message: 'password is required'
+                        value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/,
+                        message: 'A valid password is at least 6 chars long, has at least one uppercase and one lowercase character.'
                     }
                 })} />
 
