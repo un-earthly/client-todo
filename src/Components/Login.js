@@ -11,7 +11,6 @@ export default function Login() {
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth)
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password)
-        toast.success('Logged In')
     };
 
     const navigate = useNavigate();
@@ -19,6 +18,7 @@ export default function Login() {
     const from = location.state?.from?.pathname
     if (user) {
         if (user) {
+            toast.success('Logged In')
             navigate(from || '/add-todos')
         }
     }
