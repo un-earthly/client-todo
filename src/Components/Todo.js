@@ -3,7 +3,7 @@ import React from 'react'
 import { toast } from 'react-toastify';
 
 export default function Todo({ todo, i, taskCompleted }) {
-    const { _id, title, desc } = todo;
+    const { _id, title, desc, due, tag } = todo;
 
     const deleteTodo = id => {
         const confirm = window.confirm('Are You Sure?')
@@ -25,6 +25,8 @@ export default function Todo({ todo, i, taskCompleted }) {
             <th scope="row">{i + 1}</th>
             <td className={`${taskCompleted ? 'text-decoration-line-through text-danger disabled' : ''}`}>{title}</td>
             <td className={`${taskCompleted ? 'text-decoration-line-through text-danger disabled' : ''}`}>{desc}</td>
+            <td className={`${taskCompleted ? 'text-decoration-line-through text-danger disabled' : ''}`}>{due}</td>
+            <td className={`${taskCompleted ? 'text-decoration-line-through text-danger disabled' : ''}`}>{tag}</td>
             <td><button className={taskCompleted ? "btn btn-success" : "btn btn-danger"} onClick={() => makestyleDased(_id)}><i className={`bi ${taskCompleted ? "bi-check2-circle" : "bi-x-lg"}`}></i></button></td>
             <td><button className="btn btn-danger" onClick={() => deleteTodo(_id)}><i className="bi bi-trash"></i></button></td>
         </tr>

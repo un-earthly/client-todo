@@ -1,9 +1,8 @@
-import userEvent from '@testing-library/user-event';
 import axios from 'axios';
 import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../firebase.init';
 import Loading from './Loading';
@@ -16,7 +15,10 @@ export default function AddTodos() {
         const todoData = {
             email: user.email,
             title: data.title,
-            desc: data.desc
+            due: data.due,
+            tag: data.tag,
+            desc: data.desc,
+            completed: false
         }
 
         axios.post('https://young-scrubland-42861.herokuapp.com/todo', todoData)
@@ -36,9 +38,18 @@ export default function AddTodos() {
                     <input type="text" className="form-control" id="title" placeholder="Todo title" {...register("title")} required />
                     <label for="title">What To Do?</label>
                 </div>
-                <div className="form-floating">
+                <div className="form-floating mb-3">
                     <textarea type="text" className="form-control" id="msg" placeholder="Todo Description" {...register("desc")} required />
                     <label for="msg">Description</label>
+                </div>
+                <div className="form-floating mb-3">
+                    <input {...register("tag")} type="text" className="form-control" id="tag" placeholder="Todo Description" required />
+                    <label for="tag">Tag</label>
+                </div>
+                <div className="form-floating mb-3">
+                    <input type="date"
+                        {...register("due")} className="form-control" id="due" placeholder="Todo Description" required />
+                    <label for="due">Due Date</label>
                 </div>
                 <button className="btn btn-outline-dark w-100 mt-4">Submit</button>
             </form>

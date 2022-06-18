@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 import auth from '../firebase.init'
 import Todo from './Todo'
 
-export default function Todos({ searchedTodo }) {
+export default function Todos() {
     const [todos, setTodos] = useState([])
     const [user] = useAuthState(auth)
 
@@ -20,6 +20,7 @@ export default function Todos({ searchedTodo }) {
             .then(res => {
                 toast.success(`deleted ${res.data.deletedCount} completed todo`)
             })
+            .catch(error => console.log(error))
     }
 
     return (
@@ -28,16 +29,6 @@ export default function Todos({ searchedTodo }) {
                 <title>TODO - Manage Your todos</title>
             </Helmet>
 
-            {searchedTodo.error ?
-                <p className='text-danger'>Not Found Any To Do With the title</p> :
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{searchedTodo.title}</h5>
-                        <p class="card-text">{searchedTodo.desc}</p>
-                        <p class="card-text">{searchedTodo.completed ? "completed" : "not completed"}</p>
-                    </div>
-                </div>
-            }
             <h1 className='text-center text-info'>YOUR TODOS</h1>
             <table className="table">
                 <thead>
@@ -45,6 +36,8 @@ export default function Todos({ searchedTodo }) {
                         <th scope="col">#</th>
                         <th scope="col">Title</th>
                         <th scope="col">Description</th>
+                        <th scope="col">Due Date</th>
+                        <th scope="col">Tag</th>
                         <th scope="col">Done</th>
                         <th scope="col">Delete</th>
                     </tr>

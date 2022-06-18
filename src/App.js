@@ -11,17 +11,15 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 import AddTodos from './Components/AddTodos';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useState } from 'react';
 
 function App() {
 
-  const [searchedTodo, setSearchTodo] = useState(null)
   return (
     <div className="App">
-      <Navbar setSearchTodo={setSearchTodo} />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/todos" element={<RequireAuth><Todos searchedTodo={searchedTodo} /></RequireAuth>} />
+        <Route path="/todos" element={<RequireAuth><Todos /></RequireAuth>} />
         <Route path="/add-todos" element={<RequireAuth><AddTodos /></RequireAuth>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
