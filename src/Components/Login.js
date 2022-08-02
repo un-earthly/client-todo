@@ -27,7 +27,7 @@ export default function Login() {
             <h1 className="text-info text-center">Login</h1>
 
             <div className="mb-3">
-                <label for="email" className="form-label">Email address</label>
+                <label htmlFor="email" className="form-label">Email address</label>
                 <input type="email" className="form-control" id="email" {...register("email", {
                     required: 'email is required',
                     pattern: {
@@ -38,7 +38,7 @@ export default function Login() {
                 {errors?.email && console.log(errors)}
             </div>
             <div className="mb-3">
-                <label for="password" className="form-label">Password</label>
+                <label htmlFor="password" className="form-label">Password</label>
                 <input type="password" className="form-control" id="password"  {...register("password", {
                     required: "Please Enter Your password"
                 })} />

@@ -26,21 +26,21 @@ export default function Login() {
             <h1 className="text-info text-center">Register</h1>
 
             <div className="mb-3">
-                <label for="name" className="form-label">Full Name</label>
+                <label htmlFor="name" className="form-label">Full Name</label>
                 <input type="text" className="form-control" id="name" {...register("name", {
                     required: 'name is required'
                 })} />
                 {errors?.name && console.log(errors)}
             </div>
             <div className="mb-3">
-                <label for="email" className="form-label">Email address</label>
+                <label htmlFor="email" className="form-label">Email address</label>
                 <input type="email" className="form-control" id="email" {...register("email", {
                     required: 'email is required'
                 })} />
                 {errors?.email && console.log(errors)}
             </div>
             <div className="mb-3">
-                <label for="password" className="form-label">Password</label>
+                <label htmlFor="password" className="form-label">Password</label>
                 <input type="password" className="form-control" id="password"  {...register("password", {
 
                     pattern: {

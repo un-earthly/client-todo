@@ -12,7 +12,7 @@ import AddTodos from './Components/AddTodos';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
-
+import UpdateTodo from './Components/UpdateTodo';
 function App() {
 
   const [searchedTodo, setSearchTodo] = useState(null)
@@ -23,6 +23,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/todos" element={<RequireAuth><Todos searchedTodo={searchedTodo} /></RequireAuth>} />
         <Route path="/add-todos" element={<RequireAuth><AddTodos /></RequireAuth>} />
+        <Route path="/update-todo/:id" element={<RequireAuth><UpdateTodo /></RequireAuth>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<Error />} />

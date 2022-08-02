@@ -1,9 +1,8 @@
-import userEvent from '@testing-library/user-event';
 import axios from 'axios';
 import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../firebase.init';
 import Loading from './Loading';
@@ -29,16 +28,16 @@ export default function AddTodos() {
         return <Loading></Loading>
     }
     return (
-        <div className='w-50 mx-auto'>
-            <h1 className="text-center text-info my-4">Have something to do.Insert it up</h1>
+        <div className='container-sm'>
+            <h6 className="text-center text-info my-4">Have something to do.Insert it up</h6>
             <form onSubmit={handleSubmit(onSubmit)} className='my-5 '>
                 <div className="form-floating mb-3">
                     <input type="text" className="form-control" id="title" placeholder="Todo title" {...register("title")} required />
-                    <label for="title">What To Do?</label>
+                    <label htmlFor="title">What To Do?</label>
                 </div>
                 <div className="form-floating">
                     <textarea type="text" className="form-control" id="msg" placeholder="Todo Description" {...register("desc")} required />
-                    <label for="msg">Description</label>
+                    <label htmlFor="msg">Description</label>
                 </div>
                 <button className="btn btn-outline-dark w-100 mt-4">Submit</button>
             </form>

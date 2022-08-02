@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import auth from '../firebase.init'
 
