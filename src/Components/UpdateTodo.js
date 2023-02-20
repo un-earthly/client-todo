@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import { BASE_URL } from '../urls';
 
 export default function UpdateTodo() {
     const { id } = useParams();
@@ -13,7 +14,7 @@ export default function UpdateTodo() {
             desc: data.desc,
             comment: data.comment,
         }
-        axios.put(`https://young-scrubland-42861.herokuapp.com/todo/${id}`, todoData)
+        axios.put(`${BASE_URL}/todo/${id}`, todoData)
             .then(res => res.data.acknowledged ? (toast.success('Successfully updated a todo'), navigate('/todos')) : toast.error('failed to update'))
     };
     return (

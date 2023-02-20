@@ -5,17 +5,18 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import auth from '../firebase.init'
+import { BASE_URL } from '../urls'
 import Todo from './Todo'
 
 export default function Todos() {
     const [todos, setTodos] = useState([])
     const [user] = useAuthState(auth)
     useEffect(() => {
-        axios.get(`https://young-scrubland-42861.herokuapp.com/todo?user=${user.email}`)
+        axios.get(`${BASE_URL}/todo?user=${user.email}`)
             .then(res => setTodos(res.data))
     }, [user, todos])
     const deleteAll = () => {
-        axios.delete('https://young-scrubland-42861.herokuapp.com/todos/completed')
+        axios.delete(`${BASE_URL}/todos/completed`)
             .then(res => {
                 toast.success(`deleted ${res.data.deletedCount} completed todo`)
             })

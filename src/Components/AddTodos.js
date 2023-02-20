@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../firebase.init';
+import { BASE_URL } from '../urls';
 import Loading from './Loading';
 
 export default function AddTodos() {
@@ -18,7 +19,7 @@ export default function AddTodos() {
             desc: data.desc
         }
 
-        axios.post('https://young-scrubland-42861.herokuapp.com/todo', todoData)
+        axios.post(`${BASE_URL}/todo`, todoData)
             .then(res => {
                 res.data.acknowledged ? toast.success('Successfully added a todo') : toast.error('failed to insert')
                 navigate('/todos')

@@ -2,13 +2,14 @@ import axios from 'axios';
 // import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom'
+import { BASE_URL } from '../urls';
 export default function Todo({ todo, i, taskCompleted, setTodoInfo }) {
     const { _id, title, desc, comment } = todo;
     const deleteTodo = id => {
         const confirm = window.confirm('Are You Sure?')
 
         if (confirm) {
-            axios.delete(`https://young-scrubland-42861.herokuapp.com/todo/${id}`)
+            axios.delete(`${BASE_URL}/todo/${id}`)
                 .then(res => console.log(res))
         }
         else {
@@ -16,7 +17,7 @@ export default function Todo({ todo, i, taskCompleted, setTodoInfo }) {
         }
     }
     const makestyleDased = id => {
-        axios.put(`https://young-scrubland-42861.herokuapp.com/todo/${id}/completed`)
+        axios.put(`${BASE_URL}/todo/${id}/completed`)
             .then(res => console.log(res.data))
     }
     return (

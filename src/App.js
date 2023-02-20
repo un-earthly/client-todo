@@ -7,7 +7,7 @@ import RequireAuth from './Components/RequireAuth';
 import Error from './Components/Error';
 import Navbar from './Components/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.min.js'
+import 'bootstrap/dist/js/bootstrap.bundle';
 import AddTodos from './Components/AddTodos';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
